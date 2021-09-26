@@ -17,4 +17,10 @@
   </ItemGroup>
 
 
+  <ItemGroup>
+    <None Remove="Context\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Context\" />
+  </ItemGroup>
 </Project>

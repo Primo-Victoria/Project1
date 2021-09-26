@@ -29,6 +29,10 @@ namespace Project1
             services.AddDbContext<BudgetContext>(opt =>
                 opt.UseInMemoryDatabase("Budget"));
             services.AddControllers();
+
+            services.AddDbContext<BudgetContext>(opt =>
+                opt.UseInMemoryDatabase("Budget"));
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

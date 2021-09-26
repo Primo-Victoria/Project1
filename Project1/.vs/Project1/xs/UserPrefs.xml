@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{CC34F289-5A9E-4E31-8D2A-FFD0F8C136A5}|Default">
+  <MonoDevelop.Ide.ItemProperties.Project1 PreferredExecutionTarget="/Applications/Yandex.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Project1/Startup.cs">
+    <Files>
+      <File FileName="Project1/Controllers/BudgetsController.cs" Line="1" Column="1" />
+      <File FileName="Project1/Models/Note.cs" Line="3" Column="1" />
+      <File FileName="Project1/Context/NoteContext.cs" Line="14" Column="47" />
+      <File FileName="Project1/Startup.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Project1" expanded="True">
+            <Node name="Project1" expanded="True">
+              <Node name="Context" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
