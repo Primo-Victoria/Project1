@@ -13,9 +13,9 @@ namespace Project1.Controllers
     [ApiController]
     public class BudgetsController : ControllerBase
     {
-        private readonly BudgetContext _context;
+        private readonly NoteContext _context;
 
-        public BudgetsController(BudgetContext context)
+        public BudgetsController(NoteContext context)
         {
             _context = context;
         }

@@ -1,9 +1,9 @@
 ﻿using System;
 namespace Project1.Context
 {
-    public class NoteContext
+    public class UserContext
     {
-        public NoteContext()
+        public UserContext()
         {
         }
     }

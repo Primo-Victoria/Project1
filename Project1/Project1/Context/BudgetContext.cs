@@ -7,9 +7,9 @@ using Project1.Models;
 
 namespace Project1.Controllers
 {
-    public class BudgetContext : DbContext
+    public class NoteContext : DbContext
     {
-        public BudgetContext(DbContextOptions<BudgetContext> options)
+        public NoteContext(DbContextOptions<NoteContext> options)
             : base(options)  
         {
             
