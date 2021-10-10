@@ -1,33 +1,38 @@
 ﻿<Properties StartupConfiguration="{CC34F289-5A9E-4E31-8D2A-FFD0F8C136A5}|Default">
   <MonoDevelop.Ide.ItemProperties.Project1 PreferredExecutionTarget="/Applications/Yandex.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Project1/Context/NoteContext.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Project1/Models/Note.cs">
     <Files>
-      <File FileName="Project1/Controllers/NotesController.cs" Line="107" Column="34" />
-      <File FileName="Project1/Models/User.cs" Line="6" Column="21" />
-      <File FileName="Project1/Startup.cs" Line="31" Column="82" />
+      <File FileName="Project1/Controllers/NotesController.cs" Line="19" Column="34" />
+      <File FileName="Project1/Models/User.cs" Line="9" Column="16" />
+      <File FileName="Project1/Startup.cs" Line="55" Column="16" />
       <File FileName="Project1/Models/Blob.cs" Line="11" Column="1" />
       <File FileName="Project1/Context/UserContext.cs" Line="13" Column="33" />
-      <File FileName="Project1/Context/NoteContext.cs" Line="14" Column="33" />
-      <File FileName="Project1/Controllers/UsersController.cs" Line="27" Column="31" />
+      <File FileName="Project1/Context/NoteContext.cs" />
+      <File FileName="Project1/Controllers/UsersController.cs" />
+      <File FileName="Project1/Models/Note.cs" Line="5" Column="18" />
+      <File FileName="Project1/Context/BudgetContext.cs" Line="18" Column="23" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Project1" expanded="True">
             <Node name="Project1" expanded="True">
-              <Node name="Context" expanded="True">
-                <Node name="NoteContext.cs" selected="True" />
-              </Node>
+              <Node name="Context" expanded="True" />
               <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Note.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

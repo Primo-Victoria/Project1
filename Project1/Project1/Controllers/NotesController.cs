@@ -5,17 +5,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Rubicon.Models;
+using Project1.Models;
+using Project1.Context;
 
-namespace Rubicon.Controllers
+namespace Project1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class NotesController : ControllerBase
     {
-        private readonly BudgetContext _context;
+        private readonly NoteContext _context;
 
-        public NotesController(BudgetContext context)
+        public NotesController(NoteContext context)
         {
             _context = context;
         }
@@ -24,14 +25,14 @@ namespace Rubicon.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Note>>> GetNote()
         {
-            return await _context.Note.ToListAsync();
+            return await _context.Notes.ToListAsync();
         }
 
         // GET: api/Notes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Note>> GetNote(int id)
         {
-            var note = await _context.Note.FindAsync(id);
+            var note = await _context.Notes.FindAsync(id);
 
             if (note == null)
             {
@@ -79,7 +80,7 @@ namespace Rubicon.Controllers
         [HttpPost]
         public async Task<ActionResult<Note>> PostNote(Note note)
         {
-            _context.Note.Add(note);
+            _context.Notes.Add(note);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetNote", new { id = note.Id }, note);
@@ -89,13 +90,13 @@ namespace Rubicon.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Note>> DeleteNote(int id)
         {
-            var note = await _context.Note.FindAsync(id);
+            var note = await _context.Notes.FindAsync(id);
             if (note == null)
             {
                 return NotFound();
             }
 
-            _context.Note.Remove(note);
+            _context.Notes.Remove(note);
             await _context.SaveChangesAsync();
 
             return note;
@@ -103,7 +104,7 @@ namespace Rubicon.Controllers
 
         private bool NoteExists(int id)
         {
-            return _context.Note.Any(e => e.Id == id);
+            return _context.Notes.Any(e => e.Id == id);
         }
     }
 }

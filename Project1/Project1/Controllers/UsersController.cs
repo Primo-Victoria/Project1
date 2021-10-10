@@ -5,31 +5,56 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Rubicon.Models;
+using Project1.Context;
+using Project1.Models;
 
-namespace Rubicon.Controllers
+namespace Project1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly BudgetContext _context;
+        private readonly UserContext _context;
 
-        public UsersController(BudgetContext context)
+        public UsersController(UserContext context)
         {
             _context = context;
         }
 
         // GET: api/Users
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Users>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers(User user)
         {
+            string login = user.Login;
+            string password = user.Password;
+
+            User find = _context.Users.FirstOrDefault(t => t.Login == user.Login);
+            if (find != default)
+            {
+                if (find.Password == user.Password)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return Unauthorized();
+                }
+            }
+            else
+            {
+                return NotFound();
+            }
+            
+
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
             return await _context.Users.ToListAsync();
         }
 
         // GET: api/Users/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Users>> GetUsers(int id)
+        public async Task<ActionResult<User>> GetUsers(int id)
         {
             var users = await _context.Users.FindAsync(id);
 
@@ -45,9 +70,9 @@ namespace Rubicon.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUsers(int id, Users users)
+        public async Task<IActionResult> PutUsers(int id, User users)
         {
-            if (id != users.Id)
+            if (id != users.id)
             {
                 return BadRequest();
             }
@@ -77,17 +102,17 @@ namespace Rubicon.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Users>> PostUsers(Users users)
+        public async Task<ActionResult<User>> PostUsers(User users)
         {
             _context.Users.Add(users);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUsers", new { id = users.Id }, users);
+            return CreatedAtAction("GetUsers", new { id = users.id }, users);
         }
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Users>> DeleteUsers(int id)
+        public async Task<ActionResult<User>> DeleteUsers(int id)
         {
             var users = await _context.Users.FindAsync(id);
             if (users == null)
@@ -103,7 +128,7 @@ namespace Rubicon.Controllers
 
         private bool UsersExists(int id)
         {
-            return _context.Users.Any(e => e.Id == id);
+            return _context.Users.Any(e => e.id == id);
         }
     }
 }

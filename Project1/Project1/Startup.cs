@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Project1.Controllers;
+using Project1.Context;
+using Microsoft.AspNetCore.Cors;
 
 namespace Project1
 {
@@ -26,13 +28,11 @@ namespace Project1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BudgetContext>(opt =>
-                opt.UseInMemoryDatabase("Budget"));
+            services.AddCors();
+            services.AddDbContext<Context.NoteContext>(opt => opt.UseInMemoryDatabase("TestDB"));
+            services.AddDbContext<UserContext>(opt => opt.UseInMemoryDatabase("TestDB"));
             services.AddControllers();
 
-            services.AddDbContext<BudgetContext>(opt =>
-                opt.UseInMemoryDatabase("Budget"));
-            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +42,8 @@ namespace Project1
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(option => option.WithOrigins("http://localhost:8080").AllowAnyMethod());
 
             app.UseRouting();
 
